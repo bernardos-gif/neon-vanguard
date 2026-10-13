@@ -18,11 +18,11 @@ func _ready() -> void:
 	var k := FighterView.new()
 	add_child(k)
 	k.setup(GameState.get_fighter(&"kairo"))
-	k.position = Vector3(-1.3, 0, 0)
+	k.position = Vector3(0.4, 0, 0)
 	var v := FighterView.new()
 	add_child(v)
 	v.setup(GameState.get_fighter(&"vesper"))
-	v.position = Vector3(1.3, 0, 0)
+	v.position = Vector3(2.2, 0, 0)
 	v.rotation.y = PI
 	_camera = Camera3D.new()
 	_camera.fov = 40.0
@@ -38,8 +38,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_t += delta
 	var a := sin(_t * 0.12) * 0.35
-	_camera.position = Vector3(sin(a) * 6.5 - 1.4, 1.5 + sin(_t * 0.2) * 0.1, cos(a) * 6.5)
-	_camera.look_at(Vector3(-1.2, 1.15, 0), Vector3.UP)
+	# Fighters sit right of centre so the menu on the left never covers them.
+	_camera.position = Vector3(sin(a) * 6.0 - 1.0, 1.45 + sin(_t * 0.2) * 0.1, cos(a) * 6.0)
+	_camera.look_at(Vector3(-1.0, 1.15, 0), Vector3.UP)
 
 
 func _build_ui() -> void:
@@ -87,7 +88,12 @@ func _build_ui() -> void:
 	foot.offset_bottom = -24
 	foot.offset_right = 1400
 	_ui.add_child(foot)
-	_menu.get_child(0).call_deferred("grab_focus")
+	_focus_first.call_deferred()
+
+
+func _focus_first() -> void:
+	if is_inside_tree() and _menu.get_child_count() > 0:
+		_menu.get_child(0).grab_focus()
 
 
 func _on_play() -> void:

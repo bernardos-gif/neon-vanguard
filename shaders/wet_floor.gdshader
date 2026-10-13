@@ -43,5 +43,6 @@ void fragment() {
 	ROUGHNESS = mix(mix(0.78, 0.4, damp), 0.04, puddle) + ring * 0.25 * puddle * ripple_strength;
 	SPECULAR = 0.5;
 	METALLIC = 0.0;
-	NORMAL_MAP = normalize(vec3(0.5 + (d2 - 0.5) * 0.25 * (1.0 - puddle), 0.5 + (d - 0.5) * 0.2 * (1.0 - puddle), 1.0));
+	// Tangent-space normal map value (0.5, 0.5, 1.0) is flat; puddles stay mirror-flat.
+	NORMAL_MAP = vec3(0.5 + (d2 - 0.5) * 0.25 * (1.0 - puddle), 0.5 + (d - 0.5) * 0.2 * (1.0 - puddle), 1.0);
 }

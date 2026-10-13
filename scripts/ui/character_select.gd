@@ -27,8 +27,8 @@ func _ready() -> void:
 	_camera.far = 600.0
 	add_child(_camera)
 	_camera.current = true
-	_camera.position = Vector3(1.6, 1.4, 5.6)
-	_camera.look_at(Vector3(1.6, 1.0, 0), Vector3.UP)
+	_camera.position = Vector3(1.0, 1.4, 5.6)
+	_camera.look_at(Vector3(1.0, 1.0, 0), Vector3.UP)
 	_build_ui()
 	for i in 2:
 		_spawn_view(i)
@@ -39,8 +39,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_t += delta
-	_camera.position = Vector3(1.6 + sin(_t * 0.25) * 0.25, 1.4, 5.6)
-	_camera.look_at(Vector3(1.6, 1.0, 0), Vector3.UP)
+	_camera.position = Vector3(1.0 + sin(_t * 0.25) * 0.2, 1.4, 5.6)
+	_camera.look_at(Vector3(1.0, 1.0, 0), Vector3.UP)
 
 
 func _fighter_index(id: StringName) -> int:
@@ -111,16 +111,17 @@ func _build_ui() -> void:
 	# Fighter info cards
 	for i in 2:
 		var card := PanelContainer.new()
+		# Cards sit above the fighters' heads so the models stay fully visible.
 		card.custom_minimum_size = Vector2(500, 0)
-		card.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT if i == 1 else Control.PRESET_BOTTOM_LEFT)
+		card.set_anchors_preset(Control.PRESET_TOP_RIGHT if i == 1 else Control.PRESET_TOP_LEFT)
 		if i == 0:
-			card.offset_left = 880
-			card.offset_right = 1380
+			card.offset_left = 860
+			card.offset_right = 1340
 		else:
 			card.offset_left = -560
 			card.offset_right = -60
-		card.offset_top = -330
-		card.offset_bottom = -40
+		card.offset_top = 40
+		card.offset_bottom = 300
 		ui.add_child(card)
 		var cv := VBoxContainer.new()
 		card.add_child(cv)
@@ -136,7 +137,12 @@ func _build_ui() -> void:
 		for c in [tag, name_l, title, bio, style]:
 			cv.add_child(c)
 		_cards.append({"tag": tag, "name": name_l, "title": title, "bio": bio, "style": style})
-	_first.call_deferred("grab_focus")
+	_focus_first.call_deferred()
+
+
+func _focus_first() -> void:
+	if is_inside_tree() and is_instance_valid(_first):
+		_first.grab_focus()
 
 
 func _set_fighter(player: int, n: int) -> void:
@@ -157,7 +163,7 @@ func _spawn_view(player: int) -> void:
 	add_child(view)
 	var mirror := player == 1 and GameState.p1_fighter == GameState.p2_fighter
 	view.setup(GameState.get_fighter(id), null, mirror)
-	view.position = Vector3(0.6 if player == 0 else 2.7, 0, 0)
+	view.position = Vector3(2.0 if player == 0 else 3.9, 0, 0)
 	view.rotation.y = 0.0 if player == 0 else PI
 	_views[player] = view
 	# Re-colour P1's view too if a mirror match appears or disappears.

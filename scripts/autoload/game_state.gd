@@ -6,6 +6,7 @@ enum Mode { VS_CPU, VS_PLAYER, CPU_VS_CPU }
 const MAIN_MENU := "res://scenes/ui/main_menu.tscn"
 const CHARACTER_SELECT := "res://scenes/ui/character_select.tscn"
 const MATCH := "res://scenes/match/match.tscn"
+const SELF_TEST := "res://tests/test_runner.tscn"
 
 const FIGHTERS := {
 	&"kairo": "res://data/fighters/kairo.tres",
@@ -23,6 +24,14 @@ var p1_difficulty := 1          # used by CPU_VS_CPU
 var rounds_to_win := 2
 var round_seconds := 99
 var ai_seed := 0                # 0 = random
+
+
+func _ready() -> void:
+	# Developer self-test: `NeonVanguard -- --self-test` runs the automated
+	# suite inside a packaged build. The tests folder is excluded from the
+	# Windows release export, so this does nothing for players.
+	if "--self-test" in OS.get_cmdline_user_args() and ResourceLoader.exists(SELF_TEST):
+		get_tree().change_scene_to_file.call_deferred(SELF_TEST)
 
 
 func get_fighter(id: StringName) -> FighterData:
