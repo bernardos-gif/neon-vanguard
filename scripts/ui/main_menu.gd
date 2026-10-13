@@ -88,6 +88,14 @@ func _build_ui() -> void:
 	foot.offset_bottom = -24
 	foot.offset_right = 1400
 	_ui.add_child(foot)
+	var credit := UiTheme.label("Made with Godot Engine (MIT License), © Godot Engine contributors  ·  Fonts: Orbitron, Rajdhani (SIL OFL 1.1)", 18, Color(1, 1, 1, 0.4))
+	credit.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	credit.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	credit.offset_left = -1100
+	credit.offset_right = -40
+	credit.offset_top = -96
+	credit.offset_bottom = -68
+	_ui.add_child(credit)
 	_focus_first.call_deferred()
 
 
