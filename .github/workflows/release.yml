@@ -1,0 +1,31 @@
+# Publishes a GitHub Release with the packaged Windows build whenever a
+# version tag (v*) is pushed. The zip is built locally with Godot and
+# committed under release/ (see BUILD_WINDOWS.md).
+name: Publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check release files
+        run: |
+          ls -la release/
+          sha256sum release/NeonVanguard_Windows_x86_64.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: NEON VANGUARD ${{ github.ref_name }} - first playable prototype
+          prerelease: true
+          body_path: .github/RELEASE_NOTES.md
+          files: release/NeonVanguard_Windows_x86_64.zip
