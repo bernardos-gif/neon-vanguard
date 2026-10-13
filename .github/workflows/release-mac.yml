@@ -1,6 +1,6 @@
 # Adds the macOS build to the existing GitHub Release (v0.1.0). It uploads
-# only the macOS zip and appends the macOS notes; the Windows asset and the
-# existing release text are left as they are.
+# only the macOS zip and appends the macOS notes once; the Windows asset and
+# the existing release text are left as they are.
 name: Publish macOS build
 
 on:
@@ -31,11 +31,20 @@ jobs:
           unzip -l release/NeonVanguard_macOS.zip
 
       - name: Attach macOS build to the release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          name: NEON VANGUARD ${{ env.RELEASE_TAG }} - first playable prototype
-          prerelease: true
-          body_path: .github/RELEASE_NOTES_MAC.md
-          append_body: true
-          files: release/NeonVanguard_macOS.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload "$RELEASE_TAG" release/NeonVanguard_macOS.zip --clobber --repo "$GITHUB_REPOSITORY"
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[] | "\(.name)  \(.size)  \(.digest)"'
+
+      - name: Append macOS notes to the release text
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body | grep -q "NeonVanguard_macOS.zip"; then
+            echo "macOS notes already present"; exit 0
+          fi
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body > notes.md
+          cat .github/RELEASE_NOTES_MAC.md >> notes.md
+          gh release edit "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --notes-file notes.md
