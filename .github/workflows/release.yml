@@ -11,9 +11,8 @@ on:
     branches:
       - claude/busy-albattani-pu01dl
     paths:
-      - "release/**"
+      - "release/NeonVanguard_Windows_x86_64.zip"
       - ".github/RELEASE_NOTES.md"
-      - ".github/workflows/release.yml"
 
 env:
   RELEASE_TAG: v0.1.0

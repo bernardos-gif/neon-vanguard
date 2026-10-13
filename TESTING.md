@@ -113,6 +113,17 @@ File: `tests/test_suite.gd`. These load the **real game scenes** headlessly.
 | **Full test suite inside the exported Linux package** (`-- --self-test`) | **ALL TESTS PASSED (25 logic tests, 54 scene checks)** |
 | Windows `.exe` launched on Windows | **Not tested.** No Windows machine was available |
 
+### macOS package (added after v0.1.0 was first published)
+
+| Check | Result |
+|---|---|
+| macOS export (`--export-release "macOS"`) | **Succeeded.** `NEON VANGUARD.app` in a 61.6 MB zip |
+| Binary | `Mach-O universal binary` with `x86_64` and `arm64` |
+| Bundle | `Info.plist` (id `com.neonvanguard.game`, version 0.1.0), icon, ad-hoc code signature, executable bit kept in the zip |
+| Data pack contents | Same game content as the Windows build; `tests/` and `tools/` excluded |
+| Full test suite after enabling *Import ETC2 ASTC* (needed for Apple Silicon) | **ALL TESTS PASSED (25 logic tests, 54 scene checks)** |
+| App launched on a Mac | **Not tested.** No Mac was available |
+
 ## 5. Performance measured
 
 `tools/benchmark_match.gd`, 3,600 frames of a Hard-vs-Hard match scene, headless:

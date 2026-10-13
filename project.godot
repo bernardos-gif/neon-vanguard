@@ -39,3 +39,4 @@ common/max_physics_steps_per_frame=6
 lights_and_shadows/directional_shadow/size=4096
 environment/defaults/default_clear_color=Color(0.02, 0.02, 0.05, 1)
 anti_aliasing/quality/screen_space_aa=1
+textures/vram_compression/import_etc2_astc=true

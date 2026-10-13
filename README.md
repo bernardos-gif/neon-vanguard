@@ -28,6 +28,12 @@ or against a friend on the same PC.
 > machine was available. If it misbehaves, build your own copy in two minutes with
 > [BUILD_WINDOWS.md](BUILD_WINDOWS.md).
 
+### On a Mac
+Download **`NeonVanguard_macOS.zip`** from the same release page, double-click it, then open
+**`NEON VANGUARD.app`**. The first time, macOS asks you to allow it in
+**System Settings → Privacy & Security → Open Anyway**. Full steps: [BUILD_MAC.md](BUILD_MAC.md).
+It runs on Apple Silicon and Intel Macs. Like the Windows build, it has not yet been launched on a real Mac.
+
 ## 2. Open the project in Godot (to edit or export it yourself)
 
 1. Download **Godot 4.7.x – Standard** (not the ".NET" version) from
@@ -137,5 +143,6 @@ startup / active / recovery frames, damage, hit stun, hit box and more. Difficul
 
 ## 6. Documentation
 - [BUILD_WINDOWS.md](BUILD_WINDOWS.md): make your own Windows `.exe`, step by step
+- [BUILD_MAC.md](BUILD_MAC.md): play or build the macOS version
 - [TESTING.md](TESTING.md): the tests that were actually run, and what still needs a human
 - [ASSET_LICENSES.md](ASSET_LICENSES.md): every third-party asset and its licence
