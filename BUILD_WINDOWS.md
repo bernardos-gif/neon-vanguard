@@ -69,5 +69,5 @@ From the project folder (where `project.godot` is):
 - The same project exported for Linux passed the complete automated test suite **inside the
   exported package** (see TESTING.md).
 - **Not verified:** launching the `.exe` on Windows. No Windows machine was available.
-- SHA-256 of `NeonVanguard.exe`: `69b458e317c3fe33b05b00c2d20d24130d8123ec7a703f8c39aca1b82ed1d679`
-- SHA-256 of `NeonVanguard_Windows_x86_64.zip`: `4bc856ee84959d1ecad662ccccd533edf4e561ad23d0017d02d1633620a41645`
+- SHA-256 of `NeonVanguard.exe`: `dfeb4d9afa6fcefb24a02f8b09408b27d896d75ed048022e7856022d240e8a50`
+- SHA-256 of `NeonVanguard_Windows_x86_64.zip`: `b93c161f198256bb25708b6903cbeaac347212b865d404d9c12beb69b3256b3d`
