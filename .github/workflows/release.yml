@@ -1,12 +1,22 @@
-# Publishes a GitHub Release with the packaged Windows build whenever a
-# version tag (v*) is pushed. The zip is built locally with Godot and
-# committed under release/ (see BUILD_WINDOWS.md).
+# Publishes a GitHub Release with the packaged Windows build. Runs when a
+# version tag (v*) is pushed, or when the release files change on the
+# development branch (then it creates the tag below itself). The zip is built
+# locally with Godot and committed under release/ (see BUILD_WINDOWS.md).
 name: Publish release
 
 on:
   push:
     tags:
       - "v*"
+    branches:
+      - claude/busy-albattani-pu01dl
+    paths:
+      - "release/**"
+      - ".github/RELEASE_NOTES.md"
+      - ".github/workflows/release.yml"
+
+env:
+  RELEASE_TAG: v0.1.0
 
 permissions:
   contents: write
@@ -25,7 +35,9 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: NEON VANGUARD ${{ github.ref_name }} - first playable prototype
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || env.RELEASE_TAG }}
+          target_commitish: ${{ github.sha }}
+          name: NEON VANGUARD ${{ github.ref_type == 'tag' && github.ref_name || env.RELEASE_TAG }} - first playable prototype
           prerelease: true
           body_path: .github/RELEASE_NOTES.md
           files: release/NeonVanguard_Windows_x86_64.zip
