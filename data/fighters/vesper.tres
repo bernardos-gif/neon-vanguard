@@ -1,0 +1,315 @@
+[gd_resource type="Resource" script_class="FighterData" format=3]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_f2kv2"]
+[ext_resource type="Script" path="res://scripts/combat/fighter_data.gd" id="2_vxbbc"]
+
+[sub_resource type="Resource" id="Resource_1twot"]
+script = ExtResource("1_f2kv2")
+id = &"st_light"
+display_name = "Snap Jab"
+startup = 3
+recovery = 6
+damage = 25
+hitstun = 13
+blockstun = 9
+hit_pushback = 2.2
+block_pushback = 2.6
+hitbox = Rect2(0.2, 1.05, 0.6, 0.3)
+pose_windup = &"snap_w"
+pose_strike = &"snap"
+
+[sub_resource type="Resource" id="Resource_vv2lg"]
+script = ExtResource("1_f2kv2")
+id = &"st_medium"
+display_name = "Hook Kick"
+strength = 1
+startup = 6
+active = 3
+recovery = 11
+damage = 48
+hitstun = 17
+blockstun = 12
+hit_pushback = 2.6
+hitbox = Rect2(0.2, 0.95, 0.85, 0.4)
+pose_windup = &"hook_w"
+pose_strike = &"hook"
+hit_sound = &"hit_medium"
+
+[sub_resource type="Resource" id="Resource_btwux"]
+script = ExtResource("1_f2kv2")
+id = &"st_heavy"
+display_name = "Spin Heel"
+strength = 2
+startup = 10
+active = 3
+recovery = 18
+damage = 80
+hitstun = 21
+blockstun = 15
+hit_pushback = 3.4
+block_pushback = 3.6
+hitbox = Rect2(0.2, 1.1, 1, 0.5)
+pose_windup = &"spin_w"
+pose_strike = &"spin"
+hit_sound = &"hit_heavy"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_h0xq7"]
+script = ExtResource("1_f2kv2")
+id = &"cr_light"
+display_name = "Shin Flick"
+hit_level = 1
+startup = 4
+recovery = 7
+damage = 22
+hitstun = 12
+blockstun = 8
+hit_pushback = 2.2
+block_pushback = 2.6
+hitbox = Rect2(0.2, 0, 0.7, 0.3)
+pose_windup = &"crflick_w"
+pose_strike = &"crflick"
+
+[sub_resource type="Resource" id="Resource_uy336"]
+script = ExtResource("1_f2kv2")
+id = &"cr_medium"
+display_name = "Slide Jab"
+strength = 1
+startup = 6
+active = 3
+recovery = 12
+damage = 40
+hitstun = 16
+blockstun = 11
+hit_pushback = 2.6
+hitbox = Rect2(0.2, 0.5, 0.8, 0.3)
+pose_windup = &"crjab_w"
+pose_strike = &"crjab"
+hit_sound = &"hit_medium"
+
+[sub_resource type="Resource" id="Resource_ybkf3"]
+script = ExtResource("1_f2kv2")
+id = &"cr_heavy"
+display_name = "Scissor Sweep"
+strength = 2
+hit_level = 1
+startup = 9
+active = 4
+recovery = 22
+damage = 72
+hitstun = 20
+blockstun = 14
+hit_pushback = 3.4
+block_pushback = 3.6
+knockdown = true
+launch = Vector2(1.2, 3.5)
+hitbox = Rect2(0.25, 0, 1, 0.3)
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"sweep_w"
+pose_strike = &"sweep"
+hit_sound = &"hit_heavy"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_uupuw"]
+script = ExtResource("1_f2kv2")
+id = &"j_light"
+display_name = "Needle Knee"
+hit_level = 2
+startup = 3
+active = 6
+recovery = 4
+blockstun = 9
+hit_pushback = 2.2
+block_pushback = 2.6
+hitbox = Rect2(0.05, 0, 0.6, 0.55)
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"air_w"
+pose_strike = &"jmedium"
+
+[sub_resource type="Resource" id="Resource_jlpqu"]
+script = ExtResource("1_f2kv2")
+id = &"j_medium"
+display_name = "Arc Fist"
+strength = 1
+hit_level = 2
+active = 5
+recovery = 5
+damage = 50
+hitstun = 17
+blockstun = 11
+hit_pushback = 2.6
+hitbox = Rect2(0.1, -0.1, 0.7, 0.6)
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"air_w"
+pose_strike = &"jlight"
+hit_sound = &"hit_medium"
+
+[sub_resource type="Resource" id="Resource_wb1q5"]
+script = ExtResource("1_f2kv2")
+id = &"j_heavy"
+display_name = "Stiletto Dive"
+strength = 2
+hit_level = 2
+startup = 7
+active = 5
+recovery = 6
+damage = 72
+hitstun = 20
+blockstun = 13
+hit_pushback = 3.4
+block_pushback = 3.6
+hitbox = Rect2(0.1, -0.25, 0.9, 0.7)
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"air_w"
+pose_strike = &"jheavy"
+hit_sound = &"hit_heavy"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_6c5bh"]
+script = ExtResource("1_f2kv2")
+id = &"sp_neutral"
+display_name = "Razor Flurry"
+strength = 3
+startup = 9
+active = 16
+recovery = 18
+damage = 22
+chip_damage = 4
+blockstun = 8
+hit_pushback = 1.0
+block_pushback = 1.4
+hits = 4
+hit_interval = 4
+hitbox = Rect2(0.2, 0.95, 0.85, 0.45)
+move_velocity = Vector2(1.5, 0)
+move_start = 9
+move_end = 25
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"flurry_a"
+pose_strike = &"flurry_b"
+hit_sound = &"hit_medium"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_2507w"]
+script = ExtResource("1_f2kv2")
+id = &"sp_forward"
+display_name = "Ghost Step"
+strength = 3
+startup = 8
+active = 4
+recovery = 18
+damage = 70
+chip_damage = 6
+hitstun = 20
+blockstun = 12
+hit_pushback = 3.0
+block_pushback = 3.4
+hitbox = Rect2(0.15, 0.2, 0.85, 0.5)
+move_velocity = Vector2(9, 0)
+move_start = 2
+move_end = 14
+low_profile = true
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"ghost_w"
+pose_strike = &"ghost"
+hit_sound = &"hit_special"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_8t2g5"]
+script = ExtResource("1_f2kv2")
+id = &"sp_back"
+display_name = "Mirage Flip"
+kind = 4
+strength = 3
+startup = 1
+active = 14
+recovery = 12
+damage = 0
+hitstun = 0
+blockstun = 0
+hit_pushback = 3.0
+block_pushback = 3.4
+hitbox = Rect2(0, 0, 0, 0)
+move_velocity = Vector2(-5, 0)
+move_start = 1
+move_end = 15
+invuln_start = 1
+invuln_end = 16
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"flip_w"
+pose_strike = &"flip"
+hit_sound = &"hit_special"
+whiff_sound = &"whiff_heavy"
+
+[sub_resource type="Resource" id="Resource_n31mg"]
+script = ExtResource("1_f2kv2")
+id = &"throw"
+display_name = "Cross Spin"
+kind = 2
+strength = 2
+hit_level = 3
+startup = 3
+recovery = 24
+damage = 90
+hitstun = 0
+blockstun = 0
+hit_pushback = 3.4
+block_pushback = 3.6
+launch = Vector2(3, 6)
+hitbox = Rect2(0, 0, 0, 0)
+cancel_into_normals = false
+cancel_into_specials = false
+pose_windup = &"throw_w"
+pose_strike = &"throw_reach"
+hit_sound = &"throw"
+
+[resource]
+script = ExtResource("2_vxbbc")
+id = &"vesper"
+display_name = "VESPER"
+title = "The Agile Pressure Fighter"
+bio = "A street-circuit legend from the Magenta Line who never fights the same way twice. Vesper smothers opponents with speed, feints and relentless combinations."
+style_summary = "Fast and aggressive. Close the gap with Ghost Step, slip out with Mirage Flip and finish strings with the multi-hit Razor Flurry."
+max_health = 950
+walk_forward_speed = 3.2
+walk_back_speed = 2.4
+dash_forward_speed = 9.0
+dash_forward_frames = 14
+dash_back_speed = 7.5
+dash_back_frames = 16
+jump_velocity = 9.9
+jump_forward_speed = 3.4
+pushbox_width = 0.55
+moves = {
+&"cr_heavy": SubResource("Resource_ybkf3"),
+&"cr_light": SubResource("Resource_h0xq7"),
+&"cr_medium": SubResource("Resource_uy336"),
+&"j_heavy": SubResource("Resource_wb1q5"),
+&"j_light": SubResource("Resource_uupuw"),
+&"j_medium": SubResource("Resource_jlpqu"),
+&"sp_back": SubResource("Resource_8t2g5"),
+&"sp_forward": SubResource("Resource_2507w"),
+&"sp_neutral": SubResource("Resource_6c5bh"),
+&"st_heavy": SubResource("Resource_btwux"),
+&"st_light": SubResource("Resource_1twot"),
+&"st_medium": SubResource("Resource_vv2lg"),
+&"throw": SubResource("Resource_n31mg")
+}
+rig_style = &"vesper"
+body_scale = 0.96
+primary_color = Color(0.95, 0.08, 0.6, 1)
+secondary_color = Color(0.03, 0.03, 0.04, 1)
+accent_color = Color(1, 0.25, 0.85, 1)
+skin_color = Color(0.86, 0.68, 0.58, 1)
+hair_color = Color(0.32, 0.1, 0.42, 1)
+alt_primary_color = Color(0.2, 0.95, 0.5, 1)
+alt_secondary_color = Color(0.9, 0.9, 0.92, 1)
+alt_accent_color = Color(0.3, 1, 0.6, 1)
+ui_color = Color(1, 0.3, 0.8, 1)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AiProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/ai/ai_profile.gd" id="1_vmgix"]
+
+[resource]
+script = ExtResource("1_vmgix")
+display_name = "Hard"
+reaction_frames = 10
+decision_interval = 10
+block_chance = 0.78
+punish_chance = 0.75
+anti_air_chance = 0.6
+combo_skill = 0.85
+aggression = 0.7
+throw_chance = 0.16
+special_chance = 0.38
+telegraph_frames = 0
+mistake_chance = 0.02

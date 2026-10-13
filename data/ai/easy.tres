@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AiProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/ai/ai_profile.gd" id="1_tygy2"]
+
+[resource]
+script = ExtResource("1_tygy2")
+display_name = "Easy"
+reaction_frames = 26
+decision_interval = 26
+block_chance = 0.15
+punish_chance = 0.1
+anti_air_chance = 0.06
+combo_skill = 0.15
+aggression = 0.45
+throw_chance = 0.04
+special_chance = 0.15
+jump_chance = 0.06
+telegraph_frames = 18
+mistake_chance = 0.22

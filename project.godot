@@ -1,0 +1,45 @@
+; NEON VANGUARD - Godot project file.
+; Open this folder (or this file) with Godot 4.7 (standard edition).
+
+config_version=5
+
+[application]
+
+config/name="NEON VANGUARD"
+config/description="An original cinematic 3D fighting game prototype."
+config/version="0.1.0"
+run/main_scene="res://scenes/ui/main_menu.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.02, 0.02, 0.05, 1)
+
+[autoload]
+
+InputConfig="*res://scripts/autoload/input_config.gd"
+AudioManager="*res://scripts/autoload/audio_manager.gd"
+Settings="*res://scripts/autoload/settings.gd"
+GameState="*res://scripts/autoload/game_state.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Rajdhani-SemiBold.ttf"
+
+[physics]
+
+common/physics_ticks_per_second=60
+common/max_physics_steps_per_frame=6
+
+[rendering]
+
+lights_and_shadows/directional_shadow/size=4096
+environment/defaults/default_clear_color=Color(0.02, 0.02, 0.05, 1)
+anti_aliasing/quality/screen_space_aa=1

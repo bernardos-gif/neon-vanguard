@@ -1,0 +1,7 @@
+# Godot 4 generated folders
+.godot/
+.import/
+# Export output
+build/
+*.tmp
+export_credentials.cfg

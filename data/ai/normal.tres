@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AiProfile" format=3]
+
+[ext_resource type="Script" path="res://scripts/ai/ai_profile.gd" id="1_bgw5v"]
+
+[resource]
+script = ExtResource("1_bgw5v")
+throw_chance = 0.1
+special_chance = 0.28
+mistake_chance = 0.08
