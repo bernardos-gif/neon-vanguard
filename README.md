@@ -13,8 +13,9 @@ or against a friend on the same PC.
 
 ## 1. Play it right now (no installation)
 
-1. On the GitHub page of this repository, open the **`release`** folder and click
-   **`NeonVanguard_Windows_x86_64.zip`**, then click **Download** (or "View raw").
+1. Open the **[v0.1.0 release page](https://github.com/bernardos-gif/neon-vanguard/releases/tag/v0.1.0)**
+   (or click **Releases** on the right side of the repository page) and, under **Assets**, click
+   **`NeonVanguard_Windows_x86_64.zip`** to download it. The same zip is also in the `release` folder.
 2. Right-click the downloaded zip → **Extract All…** → **Extract**.
 3. Open the extracted **`NEON_VANGUARD`** folder and double-click **`NeonVanguard.exe`**.
 4. If Windows shows *"Windows protected your PC"*, click **More info** → **Run anyway**.
