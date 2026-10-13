@@ -72,6 +72,13 @@ func _process(_delta: float) -> void:
 func _exit_tree() -> void:
 	if _thread and _thread.is_started():
 		_thread.wait_to_finish()
+	for p in _players:
+		p.stop()
+		p.stream = null
+	_music_player.stop()
+	_music_player.stream = null
+	_ambient_player.stop()
+	_ambient_player.stream = null
 
 
 func play(name: StringName, volume_db := 0.0, pitch_variation := 0.06) -> void:
